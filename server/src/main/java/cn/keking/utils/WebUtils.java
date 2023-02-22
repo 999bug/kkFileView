@@ -2,6 +2,8 @@ package cn.keking.utils;
 
 import io.mola.galimatias.GalimatiasParseException;
 import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.Base64Utils;
 
 import javax.servlet.ServletRequest;
@@ -21,7 +23,7 @@ import java.util.regex.Pattern;
  * create : 2020-12-27 1:30 上午
  **/
 public class WebUtils {
-
+    private static final Logger logger = LoggerFactory.getLogger(WebUtils.class);
     /**
      * 获取标准的URL
      *
@@ -227,7 +229,8 @@ public class WebUtils {
         try {
             return new String(Base64Utils.decodeFromString(source.replaceAll(" ", "+").replaceAll("\n", "")), charsets);
         } catch (Exception e) {
-            System.out.println("接入方法错误,或者未使用BASE64");
+           logger.error("接入方法错误,或者未使用BASE64");
+           logger.error(e.getMessage(), e);
             //  e.printStackTrace();
             return null;
         }

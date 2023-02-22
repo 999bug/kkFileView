@@ -70,7 +70,7 @@ public class ConfigUtils {
     public static String getCustomizedConfigPath() {
         String homePath = getHomePath();
         String separator = java.io.File.separator;
-        return homePath + separator + "config" + separator + "application.properties";
+        return homePath + separator + "config" + separator + "application.properties-v";
     }
 
     public synchronized static void restorePropertiesFromEnvFormat(Properties properties) {

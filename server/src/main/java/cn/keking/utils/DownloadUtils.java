@@ -59,8 +59,8 @@ public class DownloadUtils {
             URL url = WebUtils.normalizedURL(urlStr);
             if (!fileAttribute.getSkipDownLoad()) {
                 if (isHttpUrl(url)) {
-                    File realFile = new File(realPath);
-                    FileUtils.copyURLToFile(url, realFile);
+//                    File realFile = new File(realPath);
+//                    FileUtils.copyURLToFile(url, realFile);
                 } else if (isFtpUrl(url)) {
                     String ftpUsername = WebUtils.getUrlParameterReg(fileAttribute.getUrl(), URL_PARAM_FTP_USERNAME);
                     String ftpPassword = WebUtils.getUrlParameterReg(fileAttribute.getUrl(), URL_PARAM_FTP_PASSWORD);
