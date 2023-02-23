@@ -62,7 +62,7 @@ public class PdfFilePreviewImpl implements FilePreview {
             }
         } else {
             // 不是http开头，浏览器不能直接访问，需下载到本地
-            if (url != null && !url.toLowerCase().startsWith("http")) {
+//            if (url != null && !url.toLowerCase().startsWith("http")) {
                 if (!fileHandlerService.listConvertedFiles().containsKey(pdfName) || !ConfigConstants.isCacheEnabled()) {
                     ReturnResponse<String> response = DownloadUtils.downLoad(fileAttribute, pdfName);
                     if (response.isFailure()) {
@@ -77,9 +77,9 @@ public class PdfFilePreviewImpl implements FilePreview {
                     pdfName =   URLEncoder.encode(pdfName).replaceAll("\\+", "%20");
                     model.addAttribute("pdfUrl", pdfName);
                 }
-            } else {
-                model.addAttribute("pdfUrl", url);
-            }
+//            } else {
+//                model.addAttribute("pdfUrl", url);
+//            }
         }
         return PDF_FILE_PREVIEW_PAGE;
     }
